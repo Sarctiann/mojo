@@ -1,24 +1,16 @@
 # List the start up tasks. Learn more: https://www.gitpod.io/docs/configure/workspaces/tasks
 tasks:
-  - command: |
-      echo "Done"
-    name: Install Mojo
-    before: |
-      eval $(command gp env -e)
+  - name: Install Modular & Mojo
     init: |
+      eval $(command gp env -e)
+    command: |
       curl https://get.modular.com | MODULAR_AUTH=$MODULAR_AUTH sh -
       modular install mojo
       echo 'export MODULAR_HOME="/home/gitpod/.modular"' >> ~/.zshrc
       echo 'export PATH="/home/gitpod/.modular/pkg/packages.modular.com_mojo/bin:$PATH"' >> ~/.zshrc
       source ~/.zshrc
-    # init: echo 'init script' # runs during prebuild => https://www.gitpod.io/docs/configure/projects/prebuilds
 
-#
-# List the ports to expose. Learn more: https://www.gitpod.io/docs/configure/workspaces/ports
-# ports:
-#   - name: Frontend
-#     description: Port 3000 for the frontend
-#     port: 3000
-#     onOpen: open-preview
-
-# Learn more from ready-to-use templates: https://www.gitpod.io/docs/introduction/getting-started/quickstart
+vscode:
+  extensions:
+    - "Karsten7.mojo-vscode"
+    - "ms-python"
