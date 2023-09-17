@@ -1,7 +1,7 @@
 # List the start up tasks. Learn more: https://www.gitpod.io/docs/configure/workspaces/tasks
 tasks:
   - name: Install Modular & Mojo
-    init: |
+    before: |
       eval $(command gp env -e)
     command: |
       curl https://get.modular.com | MODULAR_AUTH=$MODULAR_AUTH sh -
@@ -13,4 +13,4 @@ tasks:
 vscode:
   extensions:
     - "Karsten7.mojo-vscode"
-    - "ms-python"
+    - "ms-python.python"
