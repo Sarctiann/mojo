@@ -3,7 +3,6 @@ tasks:
   - command: |
       echo "Done"
     name: Install Mojo
-    # init: echo 'init script' # runs during prebuild => https://www.gitpod.io/docs/configure/projects/prebuilds
     before: |
       eval $(command gp env -e)
     init: |
@@ -12,6 +11,7 @@ tasks:
       echo 'export MODULAR_HOME="/home/gitpod/.modular"' >> ~/.zshrc
       echo 'export PATH="/home/gitpod/.modular/pkg/packages.modular.com_mojo/bin:$PATH"' >> ~/.zshrc
       source ~/.zshrc
+    # init: echo 'init script' # runs during prebuild => https://www.gitpod.io/docs/configure/projects/prebuilds
 
 #
 # List the ports to expose. Learn more: https://www.gitpod.io/docs/configure/workspaces/ports
